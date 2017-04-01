@@ -1,8 +1,7 @@
-
-
-
 var throwingDarts = function (collection){
   var score = null;
+  var bonusPoints = 100;
+  var lessThanFive = [];
   if(collection.length === 0){
     return -1;
   } else if(collection.length > 0){
@@ -14,12 +13,18 @@ var throwingDarts = function (collection){
           score += 5;
             }else if(collection[i] < 5 ){
             score += 10;
+            lessThanFive.push(collection[i]);
             }
       }
 
-    return score;
+  if(lessThanFive.length === collection.length){
+    score += bonusPoints;
   }
 
+  }
+
+
+return score;
 };
 
 

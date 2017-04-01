@@ -15,14 +15,21 @@ describe('throwingDarts',() => {
 
   it('should return 0 when radius is above 10',() => {
     expect(throwingDarts([11])).to.be.equal(0);
+    expect(throwingDarts([15])).to.be.equal(0);
+    expect(throwingDarts([9001])).to.be.equal(0);
   });
 
-  it('should return 5 when radius is between 10',() => {
-    expect(throwingDarts([11,6])).to.be.equal(5);
+  it('should return 5 when radius is between 5 and 10',() => {
+    expect(throwingDarts([11,5])).to.be.equal(5);
+    expect(throwingDarts([10,11])).to.be.equal(5);
   });
 
   it('should return 10 when less than 5',() => {
     expect(throwingDarts([11,2])).to.be.equal(10);
+    expect(throwingDarts([4,-22])).to.be.equal(10);
+    expect(throwingDarts([3,-1])).to.be.equal(10);
+    expect(throwingDarts([0,-1])).to.be.equal(10);
+
   });
 
   it('should return 15 when collection is 1, 5, 11',() => {
@@ -36,8 +43,6 @@ describe('throwingDarts',() => {
   it('should return 160 when collection is 1, 2, 1, 4, 4, 2',() => {
     expect(throwingDarts([1, 2, 1, 4, 4, 2])).to.be.equal(160);
   });
-
-
 
 
   console.log(throwingDarts);

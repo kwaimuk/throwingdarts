@@ -11,15 +11,16 @@ var throwingDarts = function (collection){
         score += 0;
           }else if(collection[i] >= 5 && collection[i] <= 10){
           score += 5;
-            }else if(collection[i] < 5 ){
+            }else if(collection[i] < 5 && collection[i] >= 0){
             score += 10;
             lessThanFive.push(collection[i]);
             }
       }
 
-  if(lessThanFive.length === collection.length){
-    score += bonusPoints;
-  }
+  //If the length of less than 5 radius is equal to the length of collection, then entire collection gets a bonus of 100 points!
+    if(lessThanFive.length === collection.length){
+      score += bonusPoints;
+    }
 
   }
 
